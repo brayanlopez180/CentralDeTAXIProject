@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:fitsSystemWindows="true"
+
+    tools:context=".activities.driver.RegisterDriverActivity"
+    android:background="@color/white">
+
+    <include layout="@layout/action_bar_toolbar"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- //////////////////////// INICIO //////////////////// -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- COMIENZO PIDE NOMBRE -->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+
+                app:boxBackgroundMode="outline"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/colorGris"
+                app:startIconDrawable="@drawable/ic_usuario"
+                app:helperText="obligatorio*"
+                app:helperTextEnabled="true"
+                app:helperTextTextColor="@color/grisClaro"
+                app:startIconTint="@color/colorGris"
+                app:boxStrokeColor="@color/black"
+                android:textColorHint="@color/black"
+                app:hintTextColor="@color/colorGris">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:hint="Nombre y apellido"
+                    android:inputType="text"
+                    android:textColor="@color/colorGris"
+                    android:textColorHint="@color/colorGris"/>
+
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- FIN PIDE NOMBRE -->
+
+
+        </LinearLayout>
+
+        <!-- //////////////////////// FIN //////////////////// -->
+
+
+
+        <!-- //////////////////////// INICIO //////////////////// -->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- COMIENZO PIDE CORREO -->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+
+                app:boxBackgroundMode="outline"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/colorGris"
+                app:startIconDrawable="@drawable/ic_mail"
+                app:helperText="obligatorio*"
+                app:helperTextEnabled="true"
+                app:helperTextTextColor="@color/grisClaro"
+                app:startIconTint="@color/colorGris"
+                app:boxStrokeColor="@color/black"
+                android:textColorHint="@color/black"
+                app:hintTextColor="@color/colorGris">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:hint="Correo electrónico"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/colorGris"
+                    android:textColorHint="@color/colorGris"/>
+
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- FIN PIDE CORREO -->
+
+
+        </LinearLayout>
+
+        <!-- //////////////////////// FIN //////////////////// -->
+
+
+
+
+
+        <!-- //////////////////////// INICIO //////////////////// -->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- COMIENZO PIDE CORREO -->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+
+                app:boxBackgroundMode="outline"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/colorGris"
+                app:startIconDrawable="@drawable/ic_vehiculo"
+                app:helperText="obligatorio*"
+                app:helperTextEnabled="true"
+                app:helperTextTextColor="@color/grisClaro"
+                app:startIconTint="@color/colorGris"
+                app:boxStrokeColor="@color/black"
+                android:textColorHint="@color/black"
+                app:hintTextColor="@color/colorGris">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputVehicleBrand"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:hint="Marca del vehículo"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/colorGris"
+                    android:textColorHint="@color/colorGris"/>
+
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- FIN PIDE CORREO -->
+
+
+        </LinearLayout>
+
+        <!-- //////////////////////// FIN //////////////////// -->
+
+
+
+
+        <!-- //////////////////////// INICIO //////////////////// -->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- COMIENZO PIDE CORREO -->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+
+                app:boxBackgroundMode="outline"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/grisClaro"
+                app:startIconDrawable="@drawable/ic_placa"
+                app:helperText="obligatorio*"
+                app:helperTextEnabled="true"
+                app:helperTextTextColor="@color/grisClaro"
+                app:startIconTint="@color/colorGris"
+                app:boxStrokeColor="@color/black"
+                android:textColorHint="@color/black"
+                app:hintTextColor="@color/colorGris">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputVehiclePlate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:hint="Placa del vehículo"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/colorGris"
+                    android:textColorHint="@color/colorGris"/>
+
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- FIN PIDE CORREO -->
+
+
+        </LinearLayout>
+
+        <!-- //////////////////////// FIN //////////////////// -->
+
+
+        <!-- //////////////////////// INICIO //////////////////// -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- CONTRASEÑA -->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+
+                app:boxBackgroundMode="outline"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/colorGris"
+                app:startIconDrawable="@drawable/ic_bloq"
+                app:helperText="obligatorio*"
+                app:helperTextEnabled="true"
+                app:helperTextTextColor="@color/grisClaro"
+                app:startIconTint="@color/colorGris"
+                app:boxStrokeColor="@color/black"
+                android:textColorHint="@color/black"
+                app:hintTextColor="@color/grisClaro">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:hint="Contraseña"
+                    android:inputType="textPassword"
+                    android:textColor="@color/grisClaro"
+                    android:textColorHint="@color/grisClaro"/>
+
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- FIN CONTRASEÑA -->
+
+
+        </LinearLayout>
+
+        <!-- //////////////////////// FIN //////////////////// -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="bottom">
+
+            <Button
+                android:id="@+id/botonRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="REGISTRARME"
+                android:fontFamily="@font/letra32"
+                app:cornerRadius="10dp"
+                android:backgroundTint="@color/black"
+                android:layout_margin="30dp"
+                android:textColor="@color/white"/>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar3"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#000000"
+        android:progressTint="#000000"
+        android:progressBackgroundTint="@color/black"
+        app:layout_anchor="@+id/linearLayout"
+        app:layout_anchorGravity="center"
+        android:visibility="gone"/>
+
+
+</LinearLayout>

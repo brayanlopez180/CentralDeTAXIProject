@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "190140583533",
+    "project_id": "centraldetaxi-a939e",
+    "storage_bucket": "centraldetaxi-a939e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190140583533:android:bea510a7d5579d994af964",
+        "android_client_info": {
+          "package_name": "com.proyecto.centraldetaxi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "190140583533-b761gte3ha28ua4iadon10chr90ntlc4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.proyecto.centraldetaxi",
+            "certificate_hash": "24702981f1a9072ddc0caa0380418ccc49719532"
+          }
+        },
+        {
+          "client_id": "190140583533-ttfko9qq8bca6dvmji06tg8bjluepit5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDj872XtBkcS9zIkk3Apijt7ee7pyVvUxg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "190140583533-ttfko9qq8bca6dvmji06tg8bjluepit5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
