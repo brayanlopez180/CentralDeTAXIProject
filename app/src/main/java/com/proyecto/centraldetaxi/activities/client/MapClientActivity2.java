@@ -1,4 +1,4 @@
-package com.proyecto.centraldetaxi.activities.client;
+/*package com.proyecto.centraldetaxi.activities.client;
 
 import android.Manifest;
 import android.content.DialogInterface;
@@ -65,7 +65,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MapClientActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class MapClientActivity2 extends AppCompatActivity implements OnMapReadyCallback {
 
     // Button mButtonCerrarSesion;
     private AuthProvider mAuthProvider;
@@ -156,9 +156,12 @@ public class MapClientActivity extends AppCompatActivity implements OnMapReadyCa
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_client);
         MyToolbar.show(this, "Cliente", false);
+
 
         mAuthProvider = new AuthProvider();
         mGeofireProvider = new GeofireProvider();
@@ -195,6 +198,39 @@ public class MapClientActivity extends AppCompatActivity implements OnMapReadyCa
             }
         });
 
+
+    }
+
+
+    @Override
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        mMap = googleMap;
+
+
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        mMap.getUiSettings().setZoomControlsEnabled(true);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        mMap.setMyLocationEnabled(true);
+        mMap.setOnCameraIdleListener(mCameraListener);
+
+
+        mLocationRequest = new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 100000)
+                .setWaitForAccurateLocation(false)
+                .setMinUpdateIntervalMillis(50000)
+                .setMaxUpdateDelayMillis(100000)
+                .build();
+
+        startLocation();
+
     }
 
 
@@ -204,6 +240,8 @@ public class MapClientActivity extends AppCompatActivity implements OnMapReadyCa
             @Override
             public void onKeyEntered(String key, GeoLocation location) {
                 //AÑADIMOS LOS MARCADORES DE LOS CONDUCTORES QUE SE CONECTEN EN LA APLICACION
+
+
 
                 for (Marker marker : mDriversMarkers) {
                     if (marker.getTag() != null) {
@@ -278,7 +316,7 @@ public class MapClientActivity extends AppCompatActivity implements OnMapReadyCa
     private void requestDriver() {
 
         if (mOriginLatLng != null && mDestinationLatLng != null) {
-            Intent intent = new Intent(MapClientActivity.this, DetailRequestActivity.class);
+            Intent intent = new Intent(MapClientActivity2.this, DetailRequestActivity.class);
             intent.putExtra("origin_lat", mOriginLatLng.latitude);
             intent.putExtra("origin_lng", mOriginLatLng.longitude);
             intent.putExtra("destination_lat", mDestinationLatLng.latitude);
@@ -292,13 +330,24 @@ public class MapClientActivity extends AppCompatActivity implements OnMapReadyCa
 
     }
 
+
+
     private void limitSearch() {
-        LatLng northSide = SphericalUtil.computeOffset(mCurrentLatLgn, 10000, 0);
-        LatLng southSide = SphericalUtil.computeOffset(mCurrentLatLgn, 10000, 180);
-        mAutocomplete.setCountry("COL");
-        mAutocomplete.setLocationBias(RectangularBounds.newInstance(southSide, northSide));
-        mAutocompleteDestination.setCountry("COL");
-        mAutocompleteDestination.setLocationBias(RectangularBounds.newInstance(southSide, northSide));
+
+        LatLng northSide = SphericalUtil.computeOffset(mCurrentLatLgn, 100000, 0);
+        LatLng southSide = SphericalUtil.computeOffset(mCurrentLatLgn, 100000, 180);
+
+
+        if (mAutocomplete != null) {
+            mAutocomplete.setCountry("CO");
+            mAutocomplete.setLocationBias(RectangularBounds.newInstance(southSide, northSide));
+        }
+
+        if (mAutocompleteDestination != null) {
+            mAutocompleteDestination.setCountry("CO");
+            mAutocompleteDestination.setLocationBias(RectangularBounds.newInstance(southSide, northSide));
+        }
+
 
     }
 
@@ -308,7 +357,7 @@ public class MapClientActivity extends AppCompatActivity implements OnMapReadyCa
             public void onCameraIdle() {
 
                 try {
-                    Geocoder geocoder = new Geocoder(MapClientActivity.this);
+                    Geocoder geocoder = new Geocoder(MapClientActivity2.this);
                     mOriginLatLng = mMap.getCameraPosition().target;
                     List<Address> addressList = geocoder.getFromLocation(mOriginLatLng.latitude, mOriginLatLng.longitude, 1);
 
@@ -387,35 +436,6 @@ public class MapClientActivity extends AppCompatActivity implements OnMapReadyCa
 
     }
 
-
-    @Override
-    public void onMapReady(@NonNull GoogleMap googleMap) {
-        mMap = googleMap;
-        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        mMap.getUiSettings().setZoomControlsEnabled(true);
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        mMap.setMyLocationEnabled(true);
-        mMap.setOnCameraIdleListener(mCameraListener);
-
-
-        mLocationRequest = new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 1000)
-                .setWaitForAccurateLocation(false)
-                .setMinUpdateIntervalMillis(500)
-                .setMaxUpdateDelayMillis(1000)
-                .build();
-
-        startLocation();
-
-    }
 
 
     @Override
@@ -516,7 +536,7 @@ public class MapClientActivity extends AppCompatActivity implements OnMapReadyCa
                         .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                ActivityCompat.requestPermissions(MapClientActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST_CODE);
+                                ActivityCompat.requestPermissions(MapClientActivity2.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST_CODE);
 
                             }
                         })
@@ -525,7 +545,7 @@ public class MapClientActivity extends AppCompatActivity implements OnMapReadyCa
                         .show();
 
             }else{
-                ActivityCompat.requestPermissions(MapClientActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST_CODE);
+                ActivityCompat.requestPermissions(MapClientActivity2.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST_CODE);
 
             }
 
@@ -557,9 +577,9 @@ public class MapClientActivity extends AppCompatActivity implements OnMapReadyCa
 
     void logout(){
         mAuthProvider.logout();
-        Intent intent = new Intent(MapClientActivity.this, InicioAppActivity2.class);
+        Intent intent = new Intent(MapClientActivity2.this, InicioAppActivity2.class);
         startActivity(intent);
         finish();
 
     }
-}
+}*/
